@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>10-minute lesson on creating your own R functions</title>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>10-minute lesson on creating your own R functions</h1>
+
+<h3>Daniel J. Hocking</h3>
+
+<h3>University of New Hampshire</h3>
+
+<h3>12 November 2013</h3>
+
+<p>Today, we&#39;re going to learn how to write your own R functions.</p>
+
+<p>This is useful if you have code that you are likely to use more than once and it&#39;s also a good way to share code that you&#39;ve written. </p>
+
+<p>Also, by learning to write your own function, you will be better at reading, using, and manipulating functions for R packages and other users. And is&#39;nt that one of the biggest benefits of using open source software.</p>
+
+<p>This lesson assumes that you&#39;re familiar with the basics of the R programming language including for loops, ifelse statements, and the use of built-in functions.</p>
+
+<p>We&#39;re going to write a funciton to calculate the mean of a vector. This can already be done with the built-in mean function in R, but it&#39;s a good way to start because the results are easy to check.</p>
+
+<p>So we don&#39;t have problems with the built-in &#39;mean&#39; function, we are going to call our funtion &#39;meanVector&#39;</p>
+
+<pre><code class="r">meanVector &lt;- function(x) {
+    # We use the function command and give argument (input) x, which will be a
+    # vector
+    sum.vector &lt;- 0  # Now we set the starting cummulative sum at 0
+    for (i in 1:length(x)) {
+        # We will use a for loop which might not be the fastest in R but it&#39;s easier
+        # to understand when starting off than other options
+        sum.vector &lt;- sum.vector + x[i]  # Now we add each value in the vector list to the cummulative sum. 
+    }  # Close the bracket of the for loop
+    mean.v &lt;- sum.vector/length(x)  # We now divide by the number of values in the vector and save it as &#39;mean.v&#39;. This could be called anything
+    return(mean.v)  # Finally, we specify what will be returned by the function
+}
+</code></pre>
+
+<p>We run our function and now it&#39;s saved just like any other function. To see it as you would another function just type the name of the function and run that line</p>
+
+<pre><code class="r">meanVector
+</code></pre>
+
+<pre><code>## function(x) {
+##     # We use the function command and give argument (input) x, which will be a
+##     # vector
+##     sum.vector &lt;- 0  # Now we set the starting cummulative sum at 0
+##     for (i in 1:length(x)) {
+##         # We will use a for loop which might not be the fastest in R but it&#39;s easier
+##         # to understand when starting off than other options
+##         sum.vector &lt;- sum.vector + x[i]  # Now we add each value in the vector list to the cummulative sum. 
+##     }  # Close the bracket of the for loop
+##     mean.v &lt;- sum.vector/length(x)  # We now divide by the number of values in the vector and save it as &#39;mean.v&#39;. This could be called anything
+##     return(mean.v)  # Finally, we specify what will be returned by the function
+## }
+</code></pre>
+
+<p>Now let&#39;s test out our function to make sure it works. We&#39;ll start by making a few vectors to try:</p>
+
+<pre><code class="r">v1 &lt;- c(-1, -1, 0, 1, 1)
+meanVector(v1)
+</code></pre>
+
+<pre><code>## [1] 0
+</code></pre>
+
+<pre><code class="r">
+v2 &lt;- c(1, 2, 3, 4, 5)
+meanVector(v2)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">
+v3 &lt;- c(1, 2, NA, 4, 5)
+meanVector(v3)
+</code></pre>
+
+<pre><code>## [1] NA
+</code></pre>
+
+<p>Our function performs well when the vector is made up of numeric values but when there is a missing value as an NA, the function returns an NA. That might be okay, but what if we want to get a mean of the values not including the NA? We need to add an additional argument to the function giving an option of how to handle the NA.</p>
+
+<pre><code class="r">meanVector2 &lt;- function(x, skip.na = FALSE) {
+    sum.vector &lt;- 0
+    if (skip.na == FALSE) {
+        for (i in 1:length(x)) {
+            sum.vector &lt;- sum.vector + x[i]
+        }
+        mean.v &lt;- sum.vector/length(x)
+    } else {
+        x.new &lt;- x[!is.na(x)]
+        for (i in 1:length(x.new)) {
+            sum.vector &lt;- sum.vector + x.new[i]
+        }
+        mean.v &lt;- sum.vector/length(x.new)
+    }
+    return(mean.v)
+}
+</code></pre>
+
+<p>Now let&#39;s try with the vectors again:</p>
+
+<pre><code class="r">meanVector2(v2)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">meanVector2(v3)
+</code></pre>
+
+<pre><code>## [1] NA
+</code></pre>
+
+<pre><code class="r">meanVector2(v3, skip.na = TRUE)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p>This time it works even when NA are present</p>
+
+<p>Now if this was a real function for general use, you would want to put in checks with warnings and error messages. For example, what happens if you try to input a matrix for x? This is the type of thing to think about when writing functions, but for now this should give you a basic idea of how to write your own utility functions and give you a better understanding of the built-in function you regularly use. Remember you can always type the name of the function to see the code behind it, for example,</p>
+
+<p>sd # standard deviation function</p>
+
+<p>This can also allow you to take and modify existing functions, just be sure to give it a new name.</p>
+
+<h3>General Programming Guidelines (Bruan and Murdoch 2007)</h3>
+
+<ol>
+<li>Understand the problem</li>
+<li>Work out a general idea of how to solve it</li>
+<li>Translate your general idea into a detailed implementation</li>
+<li>Check: Does it work?
+
+<ul>
+<li>Is it good enough?</li>
+<li>If yes, you are done!</li>
+<li>If not, go back to step 2</li>
+</ul></li>
+</ol>
+
+</body>
+
+</html>

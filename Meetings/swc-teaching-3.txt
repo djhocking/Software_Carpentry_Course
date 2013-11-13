@@ -1,0 +1,162 @@
+The 2013-11-07 Meeting of the Software Carpentry Instructors Study Group
+
+Note: Matthew Lightman, Raniere Silva, and Molly Gibson are doing half-hour tutorials online today at 12:30, 13:00, and 15:00 Easterm time respectively as their final exercise for Group 6. They will post explanations here of how to connect and watch - everyone is welcome to sit in, give them feedback, and learn something new.
+
+Matthew Lightman's Tutorial:  Python collections module
+To join the meeting, simply go to https://www.anymeeting.com/070-890-831 a few minutes before 12:30 pm EST on Thursday, November 7.
+
+Raniere Silva's Tutorial: Resolving Git conflicts
+I will use Google Hangout and you can join by going to this link: https://plus.google.com/hangouts/_/event/cplq803jjph3q0b4adh1u7dhhok?authuser=0&hl=en a few menutes before 13:00 EST on Thursday, November 7. The files that I will use for setup the lesson environment can be found at https://github.com/r-gaia-cs/teach06-lesson.
+
+Molly Gibson's Tutorial: Recovering Files with Git
+I will use Google Hangout for my tutorial and you can join by going to  this link: https://plus.google.com/hangouts/_/event/cpu8napfrolni4e6v1ntufdif84?authuser=0&hl=en a few minutes before 15:00 EST on Thursday, November 7.
+
+For the study group meetings at 11:00 am and 7:00 pm Eastern:
+ * Phone details: +1 800 707 2533 (password 369, conference ID 7618)
+ * Please fill in your name in the upper right so we know who's typing what.
+ * Please also add your name to the list of attendees at the bottom of the pad (along with where you are).
+ * Please also mute your microphone when you are not speaking to cut down on background noise and feedback --- we'll use the text chat to the right to synchronize who's speaking when.
+ * Please add yourself to the attendee list below line 70
+
+Agenda:
+ * http://teaching.software-carpentry.org/category/round-7-2/ (27 entries)
+ * Questions about assessment questions:
+   * Which was easier to come up with? Why?
+   * Which do you consider gives a more accurate estimate of respondent's knowledge?
+   * Did you learn anything from other people's multiple-choice questions about their subjects?
+   * Did you learn anything about how to write MCQs?
+   * (How) would you use these in teaching?
+ * Please put point-form answers under your name in the doc below for the benefit of people who can't connect
+
+Free Notes:
+ * A good question can also teach something directly (you should learn something by reading other people's questions).
+ * It is easy to write a question for experts that relies on obscure details that in "real life" one always looks up.
+ * Difficult to write clear unambiguous questions
+   * ask someone else to try the question (but expert blind spot)
+   * make two questions on the same topic
+ * Tip: ask the students to write down mcq (as an exam question) and the why it is a good question
+   * students like it (become more motivated) because they are in control of something
+     * students feel that they learn stuff and gain control of what they are learning.
+     * Chi-ching! learning process improved!
+ * polite vs respect
+ * "impress me" (for a web programming project)
+   * two distinct groups
+ * SW material is fluid to allow teachers to take advantage of giving some "control" to attendees and motivate their learning
+ * Take advatage of "students'" questions to increase motivation because you're talking about what they want to know
+ * "Probing questions" allows students to be actively engaged
+   * If you use "probing questions", need to address the misunderstanding if / when they occur
+ * Take time to explain the answers
+ * Peer instruction
+   * student and instructor giving questions and answers back and forth throughout the class
+ * MCQ
+   * good : if you can't come up with the question, you're not ready to make the material
+   * it's like a target for making a concept map
+
+Next 2 Weeks:
+
+ * read chapter 4 and http://teaching.software-carpentry.org/wp-content/uploads/2012/08/chen-pattern-language-screencasting-2009.pdf
+ * choose a small topic
+   * prefer "how" to "what"
+ * make a screencast that is at most 3 minutes (180 seconds) long
+   * Remember: this is not Hollywood! # <--
+   * audience intended to be bootcamp people: scientists without too much sideways knowledge
+   * See what others have done from previous rounds from the blog
+   * Blog post by the end of the week "My topic is..."
+     * log your topic
+     * Edit next week and add screencast
+ * watch/comment on at least two other screencasts
+   * see previous: http://teaching.software-carpentry.org/category/video/
+ * software: Camtasia on Mac or Windows
+   * mac: quicktime (comes with the os)
+   * linux? vlc?   http://www.maartenbaert.be/simplescreenrecorder/ I used kdenlive recently and was impressed that video on linux was not as bad as I expected: very easy to do slides + audio (Luis).
+   * windows?
+   * Mac/Windows: http://www.techsmith.com/camtasia.html
+
+Attendees (morning):
+ * Greg Wilson (Mozilla, Toronto)
+ * Daniel Hocking (University of New Hampshire, USA)
+   * Expert question was more difficult, especially keeping in mind a single 5 minute lesson. It was also harder to make the expert question multiple choice
+   * Expert was easier to estimate the knowledge though
+   * Definitely, I'm definitely not an expert in lists in R, so that was useful to think through and why the wrong answers would be tricky.
+   * I got good ideas about how to ask questions to separate experts. I've rarely used multipe choice questions in the past so it was helpful to think about.
+ * Asela Wijeratne (Wooster, OH)
+   * Novice
+   * It is difficult assess the noivce knoweldge 
+   * Yes, I learnt from others questions about different tools
+   * 
+   * I will use MCQs to quickly assess people's knowledges
+ * Robert Flight (UK, Lexington, USA)
+   * Novices, expert was horrible, so hard to know what is "expert" knowledge
+   * The novices from competent
+   * Yes, I think I thought way too hard about mine, and saw a lot of alternative ways to approach the "how" of MCQ from the others
+   * Yep, they are hard to come up with
+   * Gauging the composition of the class
+ * Sean Dawson (Hamilton, Ontario)
+   * The expert question was easier; it was easier to look for obscure aspects of the topic and develop a question from there than it was to guess what a novice might not know
+   * I believe my second question covered a few very important topics regarding Python and programming so I felt that answer would be more useful
+   * I found myself somewhat surprised by how difficult some of the questions were in areas I had thought myself competent / expert but having been away for a small time
+   * I found it very useful in coming up with wrong answers that still had value in clearing up misconceptions
+   * Unclear how to use in teaching
+ * David Worth (STFC & Software Engineering Support Centre, UK)
+   * Novices from compentent - it was easier to think of something basic that a complete beginner would not know rather than thinking of something that a competent might not know. My second Q might be obvious to everyone!
+   * Novices from compentent
+   * Learned plenty about python collections that I didn't know before. 2*[,,,] - WHY?!!
+   * Yes. Need to write Qs with one correct answer. Use a scenario as a basis for Q.
+   * I might use these questions to quickly determine whether people are really novice or whether they know a little to set a starting level.
+ * Rémi Emonet (Saint Étienne University, France)
+   * for novices
+   * novices discriminates better I'd say
+   * not directly, but yes by trying to find the answer (with external resources)
+   * yes and also from the link that was provided (by ?) : avoid giving the answer, avoid overusing "none of the above"
+ * David Rio Deiros (West Lafayette, Indiana)
+   * I'd say the comp/expert one was more difficult. It is more difficult to accurately distinguish between comp and expert.
+   * The first one
+   * I didn't have time to look to other questions this time. But I learned from the feedback.
+   * You have to put a lot of effort into it in order to clearly discern between the three groups. Not easy.
+   * Not sure how to use for teaching.
+ * Luis Pedro Coelho (EMBL, Germany)
+   * The novice question was easier. The harder part was coming up with the overall format: I ended up going for "what does the following code do".
+   * My expert question was pretty non-obvious for someone who doesn't know (I think)
+   * Yes.
+   * Yes. Especially that the correct answer must be correct unambiguously.
+   * I like to put up multiple choice questions on the board and have people do a show of hands (I'd use clickers or some other technology if I had it available). So, I use multiple choice questions a lot.
+ * Aaron Garoutte (MI, East Lansing)
+   * 1) Novic question was easier!
+   * 2)I thought the novice question would give a more accurate representation of the respondents knowledge.  Mostly because the expert question might hit on a topic that the respondent wasn't familiar with.
+   * 3)Yes I learned alot from the other questions.  I think mine were too easy.
+   * 4)I learned that writing MCQs is really hard.
+   * 5) Yea, I think MCQs are an effective way to show where novices are making mistakes
+ * Fan Yang (Ames, IA)
+   * It depends on the topic, but for the one I wrote, the expert question was easier. I think it's a experience thing?
+   * expert vs competent one probably gives a better estimation. 
+   * yes, I think by reading others' questions, I can see the thought process of other people and reflects on my own. 
+   * yes, it's actually really hard to write the mcq's. I really have to distinguish what I learned very early on and what I learned after some time of practice. 
+   * mcq's are good way to assess students' knowledge only if the questions are chosen correctly. So a lot of thought process has to go into writing these questions. 
+ * Joshua Adelman (University of Pittsburgh)
+   * Probably easier to come up with something simple. 
+   * I think the expert question was obscure enough that it probably would have taken quite a bit of experience with the subject. The tricky part was coming up with something concise that tested that.
+   * I'll admit to having only answered questions on subjects that I consider myself to be probably on the expert level. I should have probably tried some others.
+   * Yes
+   * Probably as a quick check to see where people were at.
+ * Sam Thomson (University of Edinburgh, UK)
+   * Novices from competent.  It's hard to come up with questions that competent people won't get!
+   * Novice from competent.  The expert questions are often niche, and there's some chance a non-expert may happen to know. / An expert in most areas may happen not to know about the question asked.
+   * Yes!
+   * Yes.  It's very difficult to come up with enough plausible but false answers.
+   * Yes.  E.g. to assess knowledge going into vs coming out of a course.
+ * David Kua (University of Toronto, Canada)
+   * Expert questions were easier to come up with. It's hard to define a point which separates novices and competents without making too easy.
+   * I think the Novice-Competent question is better for probing their knowledge. Since expert questions can get really really obscure.
+   * I learned quite a few things about R and other various tools that I didn't realize.
+   * Writing multiple choice questions that sound right but aren't just "less wrong" is harder than I thought.
+   * These kinds of question would be good to gauge the knowledge of people coming into class.
+ * John Corless (Dallas, TX)
+   * Novice question was easier, maybe because I could more easily cover that range while I wasn't sure where to cut off expert level
+   * Novice question I think
+   * Yes, it led me to go investigate a little more
+   * Seems like a good way to gauge class understanding
+
+Attendees (evening):
+ * Greg Wilson (Mozilla, Toronto)
+
+

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>3-minute lesson on creating your own R functions</title>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>3-minute lesson on creating your own R functions</h1>
+
+<h3>Daniel J. Hocking</h3>
+
+<h3>University of New Hampshire</h3>
+
+<h3>12 November 2013</h3>
+
+<p>Today, we&#39;re going to learn how to write your own R functions. Functions are self-contained pieces of code with a well-defined purpose. The can take inputs, do calculations, and produce outputs (Bruan and Murdoch 2007).</p>
+
+<p>Learning to write functions is useful if you have code that you are likely to use more than once and it&#39;s also a good way to share code that you&#39;ve written. </p>
+
+<p>Also, by learning to write your own function, you will be better at reading, using, and manipulating functions for R packages and other users. And isn&#39;t that one of the biggest benefits of using open source software.</p>
+
+<p>We will start with a simple function just to raise a numeric value to a power. It&#39;s easy to do in R with the carrot operator.</p>
+
+<pre><code class="r">3^3
+</code></pre>
+
+<pre><code>## [1] 27
+</code></pre>
+
+<p>But having a function can be useful for using with more complicated functions and options or even just to use frequently on multiple values.</p>
+
+<pre><code class="r">powerXY &lt;- function(x, y = 2) {
+    xy &lt;- x^y
+    return(xy)
+}
+</code></pre>
+
+<p>Let&#39;s take a quick look at the function we created:</p>
+
+<pre><code class="r">powerXY
+</code></pre>
+
+<pre><code>## function(x, y = 2) {
+##     xy &lt;- x^y
+##     return(xy)
+## }
+</code></pre>
+
+<p>We can see that the function is stored in our R environment and looks correct. Viewing function is useful for checking what they are doing and for copying then manipulating existing functions</p>
+
+<pre><code class="r">x1 &lt;- 3
+y1 &lt;- 3
+
+x1^y1
+</code></pre>
+
+<pre><code>## [1] 27
+</code></pre>
+
+<pre><code class="r">powerXY(x1, y1)
+</code></pre>
+
+<pre><code>## [1] 27
+</code></pre>
+
+<pre><code class="r">powerXY(x1)
+</code></pre>
+
+<pre><code>## [1] 9
+</code></pre>
+
+<pre><code class="r">
+x2 &lt;- c(1, 2, 3, 4, 5)
+power(x2, y2)
+</code></pre>
+
+<pre><code>## Error: unused argument (y2)
+</code></pre>
+
+<p>Now if this was a real function for general use, you would want to put in checks with warnings and error messages. For example, what happens if you try to input a vector for x with missing values (NA)? This is the type of thing to think about when writing functions, but for now this should give you a basic idea of how to write your own utility functions and give you a better understanding of the built-in function you regularly use. Remember you can always type the name of the function to see the code behind it, for example,</p>
+
+<p>sd # standard deviation function</p>
+
+<p>This can also allow you to take and modify existing functions, just be sure to give it a new name.</p>
+
+<h3>General Programming Guidelines (Bruan and Murdoch 2007)</h3>
+
+<ol>
+<li>Understand the problem</li>
+<li>Work out a general idea of how to solve it</li>
+<li>Translate your general idea into a detailed implementation</li>
+<li>Check: Does it work?
+
+<ul>
+<li>Is it good enough?</li>
+<li>If yes, you are done!</li>
+<li>If not, go back to step 2</li>
+</ul></li>
+</ol>
+
+</body>
+
+</html>
